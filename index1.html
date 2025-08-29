@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Mundo Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .infographic {
+            width: 100%;
+            max-width: 1100px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .header-icons {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .header-icons i {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 35px;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4b6cb7, #182848);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #d6e0f0;
+        }
+        
+        h2 i {
+            margin-right: 12px;
+            color: #4b6cb7;
+            background: #e8eeff;
+            padding: 10px;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gadgets {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        
+        .gadget {
+            text-align: center;
+            width: 130px;
+            padding: 15px 10px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .gadget:hover {
+            transform: scale(1.05);
+        }
+        
+        .gadget-img {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e8eeff 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gadget-img i {
+            font-size: 2.5rem;
+            color: #4b6cb7;
+        }
+        
+        .gadget p {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .widgets {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .widget {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .widget:hover {
+            transform: translateY(-5px);
+        }
+        
+        .widget i {
+            font-size: 2rem;
+            color: #4b6cb7;
+            margin-bottom: 12px;
+            background: #e8eeff;
+            padding: 10px;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        
+        .widget p {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .comms {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .comm-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .comm-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .comm-icon {
+            width: 50px;
+            height: 50px;
+            background: #e8eeff;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            color: #4b6cb7;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .comm-details h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .comm-details p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .quote {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin: 10px 35px 35px;
+            border-radius: 15px;
+            font-style: italic;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .quote i {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+        
+        .quote i:first-child {
+            top: 15px;
+            left: 20px;
+        }
+        
+        .quote i:last-child {
+            bottom: 15px;
+            right: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .quote {
+                margin: 0 20px 20px;
+                padding: 25px;
+                font-size: 1.1rem;
+            }
+            
+            .widgets {
+                grid-template-columns: 1fr;
+            }
+            
+            .gadgets {
+                justify-content: center;
+            }
+            
+            .header-icons {
+                position: static;
+                justify-content: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic">
+        <header>
+            <h1>Mi Mundo Digital</h1>
+            <p class="subtitle">Una visión de mi ecosistema tecnológico y herramientas digitales</p>
+            <div class="header-icons">
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-bluetooth-b"></i>
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="section">
+                <h2><i class="fas fa-laptop"></i> Mis Gadgets</h2>
+                <div class="gadgets">
+                    <div class="gadget">
+                        <div class="gadget-img">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <p>Laptop</p>
+                    </div>
+                    <div class="gadget">
+                        <div class="gadget-img">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <p>Smartphone</p>
+                    </div>
+                    <div class="gadget">
+                        <div class="gadget-img">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <p>Auriculares</p>
+                    </div>
+                    <div class="gadget">
+                        <div class="gadget-img">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <p>Tablet</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-th"></i> Widgets Útiles</h2>
+                <div class="widgets">
+                    <div class="widget">
+                        <i class="fas fa-sun"></i>
+                        <p>Clima</p>
+                    </div>
+                    <div class="widget">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>Calendario</p>
+                    </div>
+                    <div class="widget">
+                        <i class="fas fa-sticky-note"></i>
+                        <p>Notas</p>
+                    </div>
+                    <div class="widget">
+                        <i class="fas fa-stopwatch"></i>
+                        <p>Temporizador</p>
+                    </div>
+                    <div class="widget">
+                        <i class="fas fa-music"></i>
+                        <p>Reproductor</p>
+                    </div>
+                    <div class="widget">
+                        <i class="fas fa-chart-pie"></i>
+                        <p>Estadísticas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-comments"></i> Comunicación</h2>
+                <div class="comms">
+                    <div class="comm-item">
+                        <div class="comm-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="comm-details">
+                            <h3>Redes Sociales</h3>
+                            <p>Instagram, Twitter, LinkedIn, Facebook</p>
+                        </div>
+                    </div>
+                    <div class="comm-item">
+                        <div class="comm-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="comm-details">
+                            <h3>Mensajería Instantánea</h3>
+                            <p>WhatsApp, Telegram, Signal</p>
+                        </div>
+                    </div>
+                    <div class="comm-item">
+                        <div class="comm-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="comm-details">
+                            <h3>Correo Electrónico</h3>
+                            <p>Gmail, Outlook, Yahoo Mail</p>
+                        </div>
+                    </div>
+                    <div class="comm-item">
+                        <div class="comm-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="comm-details">
+                            <h3>Llamadas/Videollamadas</h3>
+                            <p>Zoom, Meet, FaceTime, Skype</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote">
+            <i class="fas fa-quote-left"></i>
+            "La tecnología es una herramienta poderosa, pero su valor real reside en cómo la usamos para mejorar nuestras vidas sin dejar de conectar con lo humano."
+            <i class="fas fa-quote-right"></i>
+        </div>
+    </div>
+</body>
+</html>
